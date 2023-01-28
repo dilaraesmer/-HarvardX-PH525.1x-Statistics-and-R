@@ -74,12 +74,44 @@ controls <- filter(dat, Diet=="chow") %>%
   select(Bodyweight) %>% unlist
 
 controls
-
 mean(controls)
 
+url = "https://raw.githubusercontent.com/genomicsclass/dagdata/master/inst/extdata/msleep_ggplot2.csv"
+filename <- basename(url)
+download(url, filename)
 
+# How many animals in the table are primates?
 
+nrow(data)
+primates = filter(data, order == "Primates")
+nrow(primates)
 
+# What is the class of the object you obtain after subsetting the table to only include primates?
 
+class(primates)
 
+# Now use the select() function to extract the sleep (total) for the primates. What class is this object?
+
+data %>% filter(order == "Primates") %>%
+  select(sleep_total) %>% class
+
+# Now use the select() function to extract the sleep (total) for the primates. What class is this object?
+
+nrow()
+
+# Now we want to calculate the average amount of sleep for primates (the average of the numbers computed above). One challenge is that the mean() function requires a vector so, if we simply apply it to the output above, we get an error. Look at the help file for unlist() and use it to compute the desired average. What is the average amount of sleep for primates?
+
+data %>% filter(order == "Primates") %>% 
+  select(sleep_total) %>% unlist %>% mean
+
+# For the last exercise, we could also use the dplyr summarize function. We have not introduced this function, but you can read the help file and repeat exercise 5, this time using just filter and summarize to get the answer.
+
+data %>% filter(order == "Primates") %>%
+  summarize(avg_sleep = mean(sleep_total))
  
+
+
+
+
+
+
