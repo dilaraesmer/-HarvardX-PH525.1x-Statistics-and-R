@@ -61,11 +61,21 @@ set.seed(1)
 sample(13:24, 1)
 dat[21,2]
 
+install.packages("dplyr")
 
 
+controls <- filter(dat, Diet=="chow")
+View(controls)
+select(controls, BodyWeight)
+unlist(controls)
 
 
+controls <- filter(dat, Diet=="chow") %>%
+  select(Bodyweight) %>% unlist
 
+controls
+
+mean(controls)
 
 
 
