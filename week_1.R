@@ -23,3 +23,28 @@ mean(cars[,2])
 # Q:Familiarize yourself with the which function. What row of cars has a of distance of 85?
 
 which(cars[,2] == 85)
+
+1:10
+x <- 1:10
+y <- rnorm(10)
+plot(x,y)
+
+dat <- read.csv("femaleMiceWeights.csv")
+print(dat)
+ 
+head(dat)
+
+# shows data in column 2
+
+names(dat)[2]
+
+
+
+
+
+
+
+
+
+
+ 
