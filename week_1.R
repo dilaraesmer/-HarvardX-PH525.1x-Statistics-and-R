@@ -38,6 +38,31 @@ head(dat)
 
 names(dat)[2]
 
+# What is the entry in the 12th row and second column?
+
+dat[12,2]
+
+# Use $ to extract the weight column and report the weight of the mouse in the 11th row.
+
+dat$Bodyweight[11]
+
+# How many mice are included in our dataset?
+
+length(dat$Diet)
+
+# What is the average weight of mice on the high fat diet?
+
+hf <- dat$Diet == "hf"
+mean(dat$Bodyweight[hf == TRUE])
+
+# Now take a random sample of size 1 from the numbers 13 to 24 and report back the weight of the mouse represented by that row. Make sure to type set.seed(1) to ensure that everybody gets the same answer.
+
+set.seed(1)
+sample(13:24, 1)
+dat[21,2]
+
+
+
 
 
 
